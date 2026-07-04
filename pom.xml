@@ -6,7 +6,7 @@
 
     <groupId>su.nightexpress.excellentjobs</groupId>
     <artifactId>ExcellentJobs</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -80,7 +80,7 @@
         <dependency>
             <groupId>su.nightexpress.nightcore</groupId>
             <artifactId>main</artifactId>
-            <version>2.15.3</version>
+            <version>2.16.3</version>
         </dependency>
 
         <dependency>
@@ -140,6 +140,13 @@
             <groupId>net.momirealms</groupId>
             <artifactId>custom-crops</artifactId>
             <version>3.6.29</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.pm2.infinitefishing</groupId>
+            <artifactId>InfiniteFishing</artifactId>
+            <version>1.5.8</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

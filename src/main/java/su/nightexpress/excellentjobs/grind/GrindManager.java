@@ -29,6 +29,7 @@ import su.nightexpress.excellentjobs.api.grind.GrindType;
 import su.nightexpress.excellentjobs.grind.adapter.DefaultGrindAdapters;
 import su.nightexpress.excellentjobs.grind.adapter.impl.CustomCropsAdapter;
 import su.nightexpress.excellentjobs.grind.adapter.impl.EvenMoreFishAdapter;
+import su.nightexpress.excellentjobs.grind.adapter.impl.InfiniteFishingAdapter;
 import su.nightexpress.excellentjobs.grind.adapter.impl.MythicMobAdapter;
 import su.nightexpress.excellentjobs.grind.bar.GrindBarElement;
 import su.nightexpress.excellentjobs.grind.codec.GrindObjectiveCodec;
@@ -160,6 +161,8 @@ public class GrindManager extends AbstractManager<JobsPlugin> {
             DefaultAdapterFamilies.ITEM);
         this.registerExternalAdapter(GrindConstants.CUSTOM_CROPS, CustomCropsAdapter::new,
             DefaultAdapterFamilies.BLOCK);
+
+        this.registerExternalAdapter("InfiniteFishing", InfiniteFishingAdapter::new, DefaultAdapterFamilies.ITEM);
     }
 
     private void registerTypes() {

@@ -10,4 +10,5 @@ softdepend:
   - MythicMobs
   - EvenMoreFish
   - CustomFishing
+  - InfiniteFishing
 api-version: 1.21
