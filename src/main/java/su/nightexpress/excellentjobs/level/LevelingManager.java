@@ -643,7 +643,7 @@ public class LevelingManager extends AbstractManager<JobsPlugin> {
     private void triggerLevelUp(Player player, Job job, JobData data) {
         int level = data.getLevel();
         int oldLevel = level - 1;
-        List<Reward> rewards = this.getAvailableRewards(player, job, level);
+        List<Reward> rewards = this.getAvailableRewards(player, job, oldLevel);
 
         JobLevelUpEvent event = new JobLevelUpEvent(player, job, data, oldLevel, rewards);
         this.plugin.getPluginManager().callEvent(event);
