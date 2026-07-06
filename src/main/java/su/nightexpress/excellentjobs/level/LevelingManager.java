@@ -653,7 +653,7 @@ public class LevelingManager extends AbstractManager<JobsPlugin> {
             .with(data.placeholders())
         );
 
-        this.triggerLevelUpRewards(player, data, event.getRewards());
+        this.triggerLevelUpRewards(player, data, oldLevel, event.getRewards());
     }
 
     private void triggerLevelDown(Player player, Job job, JobData data) {
@@ -687,10 +687,9 @@ public class LevelingManager extends AbstractManager<JobsPlugin> {
         return levelRewards;
     }
 
-    private void triggerLevelUpRewards(Player player, JobData data, List<Reward> rewards) {
+    private void triggerLevelUpRewards(Player player, JobData data, int level, List<Reward> rewards) {
         if (rewards.isEmpty()) return;
 
-        int level = data.getLevel();
         boolean claimRequired = this.settings.isRewardClaimRequired();
         boolean needClaim = claimRequired && !player.hasPermission(LevelingPerms.REWARD_AUTO_CLAIM);
 
@@ -700,11 +699,10 @@ public class LevelingManager extends AbstractManager<JobsPlugin> {
                 .with(CommonPlaceholders.GENERIC_AMOUNT, () -> String.valueOf(rewards.size()))
             );
             return;
-
         }
 
-        // Mark all claimed.
-        data.addClaimedLevelReward(IntStream.range(0, level).toArray());
+        // Mark as claimed.
+        data.addClaimedLevelReward(level);
         data.markDirty();
 
         // Run reward commands.
